@@ -1,0 +1,7 @@
+<h1>My Blog</h1>
+<% @posts.each do |post| %>
+	<h3><%= post.title %></h3></br>
+	<%= post.body %></br>
+	Link: <%= link_to "Red me", post_path(post)%>
+
+<% end %>
