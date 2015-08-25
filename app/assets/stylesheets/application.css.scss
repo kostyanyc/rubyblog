@@ -1,1 +1,5 @@
 @import "bootstrap";
+$padding-for-top-menu: 40px;
+body {
+  padding-top: $padding-for-top-menu;
+}
