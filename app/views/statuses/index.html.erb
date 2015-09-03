@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Statuses</h1>
-
-<table>
+<div class="panel panel-default">
+<div class="panel-heading"><h1>Listing Statuses</h1></div>
+ <div class="panel-body">
+    <p>Here is a list of the latest post status added by the users.</p>
+  </div>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -23,7 +25,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New Status', new_status_path %>

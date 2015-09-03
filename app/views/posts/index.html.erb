@@ -1,7 +1,12 @@
-<h1>My Blog Index</h1>
-<% @posts.each do |post| %>
-	<h3><%= post.title %></h3></br>
-	<%= post.body %></br>
-	Link: <%= link_to "Red me", post_path(post)%>
-
-<% end %>
+<h1>My Blog Posts Index</h1> 
+You can always participate in our blog by <%= link_to "adding new posts", new_post_path,   { :class=>"btn btn-default" } %>
+<p>
+<ul class="list-group">
+	<% @posts.each do |post| %>
+	<li class="list-group-item">
+		<h4 class="list-group-item-heading"><%= post.title %></h4>
+		<p class="list-group-item-text"><%= post.body %></p>
+		Link: <%= link_to "Read me", post_path(post)%>
+	</li>
+	<% end %>
+</ul>
