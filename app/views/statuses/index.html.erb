@@ -1,4 +1,3 @@
-<p><%= params[:controller]+'.scss' %>
 <div class="panel panel-default">
 <div class="panel-heading"><h1>Listing Statuses</h1></div>
  <div class="panel-body">
@@ -16,7 +15,7 @@
   <tbody>
     <% @statuses.each do |status| %>
       <tr>
-        <td><%= status.name %></td>
+        <td><%= status.user.full_name %></td>
         <td><%= status.content %></td>
         <td><%= link_to 'Show post created ' + time_ago_in_words(status.created_at), status %></td>
         <td><%= link_to 'Edit', edit_status_path(status) %></td>
