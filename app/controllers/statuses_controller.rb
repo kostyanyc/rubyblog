@@ -11,21 +11,23 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
+    
   end
 
   # GET /statuses/new
   def new
-    @status = Status.new
+    @status = current_user.statuses.build #Status.new
   end
 
   # GET /statuses/1/edit
   def edit
+
   end
 
   # POST /statuses
   # POST /statuses.json
   def create
-    @status = Status.new(status_params)
+    @status = current_user.statuses.build(status_params) #Status.new(status_params)
 
     respond_to do |format|
       if @status.save
