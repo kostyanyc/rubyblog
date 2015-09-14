@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
 
+
+  # Api definition
+  namespace :api, defaults: { format: :json } do
+    # We are going to list our resources here
+  end
+
+
   resources :statuses
   root 'statuses#index'
   
   get 'posts/index'
   #  devise_for :users //we replacing with our own route for devise
   devise_for :users, :controllers => { registrations: 'registrations' }
+
+ 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
