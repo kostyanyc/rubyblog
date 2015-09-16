@@ -1,7 +1,27 @@
-class Api::V1::UsersController < ApplicationController
-  respond_to :json
+module Api
+	module V1
+		class UsersController < Api::V1::BaseController
+		  def index
+		    users = User.all
 
-  def show
-    respond_with User.find(params[:id])
-  end
+		    render(
+		        json: ActiveModel::ArraySerializer.new(
+		           users,
+		           each_serializer: Api::V1::UserSerializer,
+		           root: 'users',
+		        )
+		    )
+		  end
+
+		  def show
+		    user = User.find(params[:id])
+		    #puts YAML::dump(user)
+		    render(
+		    	json: Api::V1::UserSerializer.new(
+		    		user
+		    	)
+		    )
+		  end
+		end
+    end
 end
