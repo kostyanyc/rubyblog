@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
 
-
   resources :statuses
   root 'statuses#index'
   
   get 'posts/index'
   #  devise_for :users //we replacing with our own route for devise
-  devise_for :users, :controllers => { registrations: 'registrations' }
-
- 
-
+  devise_for :users, :controllers => { registrations: 'registrations'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  namespace :api, defaults: {format: 'json'}do
+    namespace :v1 do
+      resources :users, only: [:index, :create, :show, :update, :destroy]
+      resources :statuses, only: [:index, :create, :show, :update, :destroy]
+    end
+  end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
