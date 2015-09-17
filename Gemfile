@@ -47,3 +47,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 #Authentication
 gem 'devise'
+
+#API Related Gems
+gem 'rails-api'
+gem 'active_model_serializers'
